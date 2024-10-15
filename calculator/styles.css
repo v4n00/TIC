@@ -1,0 +1,33 @@
+body {
+	background-color: #b1dbf3;
+}
+#calculator {
+	width: 240px;
+}
+button {
+	width: 60px;
+	height: 60px;
+	background-color: #388095;
+	border: 1px solid #304156;
+}
+#butoane {
+	font-size: 0px;
+}
+#zero {
+	width: 120px;
+}
+#cifre {
+	width: 75%;
+	float: left;
+}
+#cifre button {
+	background-color: #28354f;
+}
+#restbutoane {
+	float: right;
+	width: 25%;
+}
+#egal {
+	height: 120px;
+	background-color: #da8128;
+}
