@@ -3,7 +3,7 @@ body {
 	color: white;
 }
 #calculator {
-	width: 240px;
+	width: 300px;
 }
 #display {
 	background-color: #28354f;
@@ -31,7 +31,7 @@ button {
 	width: 120px;
 }
 #digits {
-	width: 75%;
+	width: 60%;
 	float: left;
 }
 #digits button {
@@ -39,9 +39,10 @@ button {
 }
 #sidebuttons {
 	float: right;
-	width: 25%;
+	width: 40%;
 }
 #equal {
 	height: 120px;
+	width: 120px;
 	background-color: #da8128;
 }

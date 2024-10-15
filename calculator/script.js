@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (result !== 0 && operator == null) {
 				clear();
 			}
+
 			if (operator == null) {
 				op1 = floatingPoint === false ? op1 * 10 + i : op1 + (i / 10) ** floatingPower++;
-				updateDisplay();
 			} else {
 				if (floatingPoint === true) {
 					op2 = op2 == null ? i / 10 : op2 + (i / 10) ** floatingPower++;
 				} else {
 					op2 = op2 == null ? i : op2 * 10 + i;
 				}
-				updateDisplay();
 			}
+			updateDisplay();
 		});
 	}
 
@@ -43,12 +43,21 @@ document.addEventListener('DOMContentLoaded', () => {
 		'-': (a, b) => a - b,
 		'*': (a, b) => a * b,
 		'/': (a, b) => a / b,
+		'1/x': (a) => 1 / a,
+		'√': (a) => Math.sqrt(a),
+		'^2': (a) => a ** 2,
 	};
 
 	let operators = document.querySelectorAll('.operator');
 	operators.forEach((op) => {
 		op.addEventListener('click', () => {
 			operator = op.innerHTML;
+
+			// check if 1 parameter operation is done
+			if (operator && operations[operator].length === 1) {
+				compute();
+			}
+
 			resetFloatingPoint();
 			updateDisplay();
 		});
@@ -79,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 	let compute = () => {
-		if (operator == null || op2 == null) return;
+		if (operator == null && op2 == null) return;
 		if (operator === '/' && op2 === 0) {
 			err = 'Cannot divide by zero';
 			updateDisplay();
