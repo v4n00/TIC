@@ -1,0 +1,91 @@
+html {
+	height: 100vh;
+}
+
+body {
+	margin: 0;
+	height: 100vh;
+	text-transform: uppercase;
+	font-family: system-ui;
+	text-align: center;
+}
+
+h1 {
+	margin: 0;
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	margin: 0;
+}
+
+input:checked + label {
+	background-color: #5083b6;
+	color: white;
+}
+
+label {
+	color: #5083b6;
+	cursor: pointer;
+}
+
+input {
+	display: none;
+}
+
+#settings {
+	width: 100vw;
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+#settings button {
+	color: #5083b6;
+	text-transform: uppercase;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+}
+
+#game {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#header {
+	width: 100vw;
+	background-color: #5083b6;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem 0;
+}
+
+#colorsContainer {
+	padding-top: 1rem;
+	background-color: #232323;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(3, 10rem);
+	grid-template-rows: repeat(2, 10rem);
+	gap: 1rem;
+}
+
+.colorBox {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 1rem;
+	background-color: white;
+	cursor: pointer;
+}
