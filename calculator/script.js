@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-	for (let i = 9; i >= -1; i--) {
-		var btn = document.createElement('button');
+	for (let i = 9; i >= 0; i--) {
+		let btn = document.createElement('button');
 		btn.innerHTML = i;
 		if (i === 0) {
 			btn.setAttribute('id', 'zero');
@@ -8,24 +8,36 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.getElementById('digits').appendChild(btn);
 
 		btn.addEventListener('click', () => {
-			//TODO: implement floating point numbers
-			if (operator === null) {
-				op1 = op1 * 10 + i;
+			// after the result is displayed, if a digit is clicked, clear the display
+			if (result !== 0 && operator == null) {
+				clear();
+			}
+			if (operator == null) {
+				op1 = floatingPoint === false ? op1 * 10 + i : op1 + (i / 10) ** floatingPower++;
 				updateDisplay();
 			} else {
-				op2 = op2 === null ? i : op2 * 10 + i;
+				if (floatingPoint === true) {
+					op2 = op2 == null ? i / 10 : op2 + (i / 10) ** floatingPower++;
+				} else {
+					op2 = op2 == null ? i : op2 * 10 + i;
+				}
 				updateDisplay();
 			}
 		});
 	}
-	btn.innerHTML = '.';
-	document.getElementById('digits').appendChild(btn);
+
+	let floatingPointBtn = document.createElement('button');
+	floatingPointBtn.innerHTML = '.';
+	floatingPointBtn.addEventListener('click', () => (floatingPoint = true));
+	document.getElementById('digits').appendChild(floatingPointBtn);
 
 	let op1 = 0;
 	let op2 = null;
 	let operator = null;
+	let floatingPoint = false;
+	let floatingPower = 1;
 	let err = null;
-	let display = 0;
+	let result = 0;
 	let operations = {
 		'+': (a, b) => a + b,
 		'-': (a, b) => a - b,
@@ -36,34 +48,46 @@ document.addEventListener('DOMContentLoaded', () => {
 	let operators = document.querySelectorAll('.operator');
 	operators.forEach((op) => {
 		op.addEventListener('click', () => {
-			if (op2 !== null) {
-				compute();
-			}
 			operator = op.innerHTML;
+			resetFloatingPoint();
 			updateDisplay();
 		});
 	});
 
+	let resetFloatingPoint = () => {
+		floatingPoint = false;
+		floatingPower = 1;
+	};
+
 	let displayElement = document.querySelector('#display p');
 	let updateDisplay = () => {
-		displayElement.innerHTML = op1;
-		if (operator !== null) {
-			displayElement.innerHTML += operator;
-			if (op2 !== null) {
-				displayElement.innerHTML += op2;
+		if (err) {
+			displayElement.innerHTML = err;
+			err = null;
+		} else {
+			displayElement.innerHTML = displayNumber(op1);
+			if (operator !== null) {
+				displayElement.innerHTML += operator;
+				if (op2 !== null) {
+					displayElement.innerHTML += displayNumber(op2);
+				}
 			}
 		}
+	};
+	let displayNumber = (number) => {
+		return number % 1 === 0 ? number : number.toFixed(1);
 	};
 
 	let compute = () => {
 		if (operator == null || op2 == null) return;
 		if (operator === '/' && op2 === 0) {
 			err = 'Cannot divide by zero';
+			updateDisplay();
 			return;
 		}
 
-		display = operations[operator](op1, op2);
-		op1 = display;
+		result = operations[operator](op1, op2);
+		op1 = result;
 		op2 = null;
 		operator = null;
 		updateDisplay();
@@ -74,8 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		op1 = 0;
 		op2 = null;
 		operator = null;
+		floatingPoint = false;
 		err = null;
-		display = 0;
+		result = 0;
 		updateDisplay();
 	};
 	document.querySelector('#clear').addEventListener('click', clear);
