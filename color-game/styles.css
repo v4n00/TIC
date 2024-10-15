@@ -41,7 +41,8 @@ input {
 	background-color: white;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: center;
+	gap: 15rem;
 }
 
 #settings button {
