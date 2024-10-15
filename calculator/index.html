@@ -2,7 +2,10 @@
 
 <html lang="en">
 	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Calculator</title>
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 
 	<body>
@@ -11,22 +14,23 @@
 				<p>0</p>
 			</div>
 
-			<div id="butoane">
+			<div id="buttons">
 				<div>
-					<button class="actiuni" onclick="myFunction(this.innerHTML)">C</button>
-					<button class="actiuni" onclick="myFunction(this.innerHTML)">Sterge</button>
-					<button class="actiuni" onclick="myFunction(this.innerHTML)">/</button>
-					<button class="actiuni" onclick="myFunction(this.innerHTML)">x</button>
+					<button id="clear" class="actiuni">C</button>
+					<button id="delete" class="actiuni">Sterge</button>
+					<button id="divide" class="actiuni">/</button>
+					<button id="multiply" class="actiuni">x</button>
 				</div>
 				<div>
-					<div id="cifre"></div>
-					<div id="restbutoane">
-						<button class="actiuni" onclick="myFunction(this.innerHTML)">-</button>
-						<button class="actiuni" onclick="myFunction(this.innerHTML)">+</button>
-						<button id="egal" class="actiuni" onclick="myFunction(this.innerHTML)">=</button>
+					<div id="digits"></div>
+					<div id="sidebuttons">
+						<button id="difference" class="actiuni">-</button>
+						<button id="addition" class="actiuni">+</button>
+						<button id="equal" class="actiuni">=</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		<script src="script.js"></script>
 	</body>
 </html>
