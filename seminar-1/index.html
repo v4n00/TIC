@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>TODO App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+	</head>
+	<body>
+		<h1>TODO APP</h1>
+		<div id="task-container"></div>
+		<button id="save">Save</button>
+		<form id="edit">
+			<h2>Edit</h2>
+
+			<label for="task-edit-id"></label>
+			<input type="text" id="task-edit-id" />
+
+			<label for="task-edit-description"></label>
+			<input type="text" id="task-edit-description" />
+
+			<label for="task-edit-status"></label>
+			<input type="text" id="task-edit-status" />
+
+			<button type="submit">Save</button>
+		</form>
+		<form id="register">
+			<h2>Register</h2>
+
+			<label for="register-name">Name:</label>
+			<input type="text" id="register-name" />
+
+			<label for="register-email">Email:</label>
+			<input type="email" id="register-email" />
+
+			<label for="register-password">Password:</label>
+			<input type="password" id="register-password" />
+
+			<button type="submit">Register</button>
+		</form>
+		<form id="login">
+			<h2>Login</h2>
+
+			<label for="login-email">Email:</label>
+			<input type="email" id="login-email" />
+
+			<label for="login-password">Password:</label>
+			<input type="password" id="login-password" />
+
+			<button type="submit">Login</button>
+		</form>
+	</body>
+	<script src="script.js" type="module"></script>
+</html>
