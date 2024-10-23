@@ -1,0 +1,13 @@
+body {
+	background-color: #232323;
+	color: white;
+}
+
+h1 {
+	color: red;
+}
+
+div,
+button {
+	margin: 10px;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>To Do App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	</head>
+	<body>
+		<h1>To Do App</h1>
+		<div id="userInfo">
+			<button id="logout" style="display: none" type="reset">Logout</button>
+		</div>
+		<div id="task-container"></div>
+		<form id="addtask">
+			<h2>Add Task</h2>
+
+			<div>
+				<label for="task-id">Id:</label>
+				<input type="text" id="task-id" />
+			</div>
+
+			<div>
+				<label for="task-description">Description:</label>
+				<input type="text" id="task-description" />
+			</div>
+			<div>
+				<label for="task-responsible">Responsible:</label>
+				<input type="text" id="task-responsible" />
+			</div>
+			<div>
+				<label for="task-status">Status:</label>
+				<input type="text" id="task-status" />
+			</div>
+
+			<button type="submit">Add</button>
+		</form>
+
+		<form id="edittask">
+			<h2>Edit Task</h2>
+
+			<div>
+				<label for="edit-task-id">Id:</label>
+				<input type="text" id="edit-task-id" />
+			</div>
+
+			<div>
+				<label for="edit-task-description">Description:</label>
+				<input type="text" id="edit-task-description" />
+			</div>
+			<div>
+				<label for="edit-task-responsible">Responsible:</label>
+				<input type="text" id="edit-task-responsible" />
+			</div>
+			<div>
+				<label for="edit-task-status">Status:</label>
+				<input type="text" id="edit-task-status" />
+			</div>
+
+			<button type="submit">Edit</button>
+		</form>
+
+		<form id="register">
+			<h2>Register</h2>
+			<div>
+				<label for="register-name">Name:</label>
+				<input type="text" id="register-name" />
+			</div>
+			<div>
+				<label for="register-email">Email:</label>
+				<input type="email" id="register-email" />
+			</div>
+			<div>
+				<label for="register-password">Password:</label>
+				<input type="password" id="register-password" />
+			</div>
+
+			<button type="submit">Register</button>
+		</form>
+
+		<!-- Login Form -->
+		<form id="login">
+			<h2>Login</h2>
+			<div>
+				<label for="login-email">Email:</label>
+				<input type="email" id="login-email" />
+			</div>
+			<div>
+				<label for="login-password">Password:</label>
+				<input type="password" id="login-password" />
+			</div>
+
+			<button type="submit">Login</button>
+		</form>
+		<script type="module" src="main.js"></script>
+	</body>
+</html>
